@@ -115,3 +115,22 @@ tmux_conf_new_session_prompt=false
 # this is the place to further customize tmux's configuration
 
 #set -g history-limit 10000
+#
+
+# Use shift keys to move forward/back.
+bind -n S-Right next-window
+bind -n S-Left previous-window
+
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+
+# switch panes using Alt-arrow without prefix
+# Doesn't seem to work
+bind -n M-Left  select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+
+set-option -g allow-rename off
