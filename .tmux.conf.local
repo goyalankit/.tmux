@@ -3,8 +3,8 @@
 # use the powerline patched font variant of the theme, possible values are:
 #   - default
 #   - powerline
-tmux_conf_theme=default
-#tmux_conf_theme=powerline
+#tmux_conf_theme=default
+tmux_conf_theme=powerline
 
 # display an indicator in the status line when the prefix key has been pressed,
 # possible values are:
@@ -42,7 +42,7 @@ tmux_conf_battery_symbol_count=auto
 tmux_conf_battery_palette='#d70000,#e4e4e4,#000000'
 #tmux_conf_battery_palette=colour160,colour254,colour16
 #tmux_conf_battery_palette=heat
-#tmux_conf_battery_palette=gradient
+tmux_conf_battery_palette=gradient
 
 # display the battery status: charging (U+26A1) / discharging (U+1F50B)
 tmux_conf_battery_status=enabled
@@ -117,6 +117,11 @@ tmux_conf_new_session_prompt=false
 #set -g history-limit 10000
 #
 
+unbind C-b
+set -g prefix `
+bind ` send-prefix
+bind-key L last-window
+
 # Use shift keys to move forward/back.
 bind -n S-Right next-window
 bind -n S-Left previous-window
@@ -131,6 +136,5 @@ bind -n M-Left  select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
-
 
 set-option -g allow-rename off
